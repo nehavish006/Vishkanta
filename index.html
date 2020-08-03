@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS4 Boiler Plate</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Apps', 'Hours per Day'],
+          ['Facebook',     2],
+          ['Instagram',      6],
+          ['Twitter',  3.8],
+          ['Youtube', 9]
+        ]);
+
+        var options = {
+          title: 'Usage per day',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <!-- nav-starts  -->
+    <nav class="navbar navbar-expand-md navbar-light"> 
+        <button class="navbar-toggler ml-auto bg-light mb-2" type="button" data-toggle="collapse" data-target="#dashNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="dashNav">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Sidebar -->
+                    <div class="col-xl-2 col-lg-3 col-md-4 fixed-top sidebar">
+                        <!--Navbar-brand  -->
+                        <a href="" class="navbar-brand text-white d-block mx-auto text-center py-3 mb-3 bottom-border">Social Media</a>
+                        <!-- Sidebar nav-items -->
+                        <ul class="navbar-nav flex-column mt-4">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-white p-2 mb-3 active sidebar-link">
+                                    <i class="fa fa-home text-white fa-lg mr-2" aria-hidden="true"></i>Dashboard
+                                </a>
+                                <a href="#" class="nav-link text-white p-2 mb-3 sidebar-link">
+                                  <i class="fa fa-user text-white fa-lg mr-2" aria-hidden="true"></i>Profile
+                                </a>
+                                <a href="#" class="nav-link text-white p-2 mb-3 sidebar-link">
+                                    <i class="fa fa-line-chart text-white fa-lg mr-2" aria-hidden="true"></i>Analytics
+                                </a>
+                                <a href="#" class="nav-link text-white p-2 mb-3 sidebar-link">
+                                    <i class="fa fa-flag text-white fa-lg mr-2" aria-hidden="true"></i>Reports
+                                </a>
+                                <a href="#" class="nav-link text-white p-2 mb-3 sidebar-link">
+                                    <i class="fa fa-calendar text-white fa-lg mr-2" aria-hidden="true"></i>Calendar
+                                </a>
+                                <a href="#" class="nav-link text-white p-2 mb-3 sidebar-link">
+                                    <i class="fa fa-cogs text-white fa-lg mr-2" aria-hidden="true"></i>Settings
+                                </a>
+                                <a href="#" class="nav-link text-white p-2 mb-3 sidebar-link">
+                                    <i class="fa fa-question-circle text-white fa-lg mr-2" aria-hidden="true"></i>Help & Support
+                                </a>
+                            </li>
+                        </ul>
+                    </div> 
+                    <!-- sidebar end -->
+
+                    <!-- top-navbar -->
+                    <div class="col-xl-10 col-lg-9 col-md-8 fixed-top py-2 top-navbar ml-auto bg-black">
+                      <div class="row align-items-center">
+                        <!-- Title -->
+                        <div class="col-md-4">
+                            <h4 class="text-light text-uppercase mb-0">Dashboard</h4>
+                        </div>
+                        <div class="col-md-5 ml-auto">
+                            <form>
+                                <div class="input-group ">
+                                    <input type="text" class="form-control search-input" placeholder="Search ">
+                                    <button class="btn btn-white search-btn">
+                                        <i class="fa fa-search text-white"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="navbar-nav">
+                              <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i class="fa fa-comments text-white fa-lg"></i></a></li>
+                              <li class="nav-item icon-parent"><a href="#" class="nav-link icon-bullet"><i class="fa fa-bell text-white fa-lg"></i></a></li>
+                              <li class="nav-item ml-md-auto"><a href="#" class="nav-link" data-toggle="modal" data-target="#sign-out"><i class="fa fa-sign-out text-white fa-lg"></i></a></li>
+                            </ul>
+                        </div>                        
+                      </div>
+                    </div>
+                    <!-- top-navbar end -->
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- end-of-nav -->
+
+    <!-- modal -->
+    <div class="modal fade" id="sign-out">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Want to leave?</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              Press logout to leave
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-dismiss="modal">Stay Here</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of modal -->
+
+      <!-- Card-starts -->
+      <section>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+              <div class="row pt-md-5 mt-md-3 mb-5">
+                <div class="col-xl-3 col-sm-6 p-2">
+                  <div class="card card-common">
+                    <div class="card-body bg-blue">
+                      <div class="d-flex justify-content-between">
+                        <i class="fa fa-facebook-square fa-2x text-light" aria-hidden="true"></i>
+                        <div class="text-right  text-white">
+                          <h6>Facebook</h6>
+                          <h4>520K Friends</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 p-2">
+                  <div class="card card-common">
+                    <div class="card-body bg-red">
+                      <div class="d-flex justify-content-between">
+                        <i class="fa fa-instagram fa-2x text-light" aria-hidden="true"></i>
+                        <div class="text-right text-white">
+                          <h6>Instagram</h6>
+                          <h4>3.9M Followers</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 p-2">
+                  <div class="card card-common">
+                    <div class="card-body bg-green">
+                      <div class="d-flex justify-content-between">
+                        <i class="fa fa-twitter-square fa-2x text-light" aria-hidden="true"></i>
+                        <div class="text-right text-white">
+                          <h6>Twitter</h6>
+                          <h4>3K Followers</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 p-2">
+                  <div class="card card-common">
+                    <div class="card-body bg-yellow">
+                      <div class="d-flex justify-content-between">
+                        <i class="fa fa-youtube-play fa-2x text-white" aria-hidden="true"></i>
+                        <div class="text-right text-white">
+                          <h6>Youtube</h6>
+                          <h4>1K Subscribers</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Cards-end -->
+
+
+      <!-- charts and tables -->
+      <section>
+        <div class="container-fluid bg-dark">
+          <div class="row mb-5">
+            <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+              <div class="row align-items-center">
+                <div class="col-xl-6 col-12 mb-4 mb-xl-0">
+                  <h3 class="text-muted text-center mb-3 ">Daily Usage</h3>
+                  <div id="donutchart" style="width: 510px; height: 290px;"></div>
+                </div>
+                <div class="col-xl-6 col-12">
+                  <h3 class="text-muted text-center mb-3 mt-2">Views & Pageviews</h3>
+                  <table class="table table-dark table-hover text-center">
+                    <thead>
+                      <tr class="text-primary">
+                        <th>#</th>
+                        <th>Social Network</th>
+                        <th>Visits</th>
+                        <th>Pageviews</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>1</th>
+                        <td>Facebook</td>
+                        <td>56</td>
+                        <td>363</td>
+                      </tr>
+                      <tr>
+                        <th>2</th>
+                        <td>Instagram</td>
+                        <td>321</td>
+                        <td>789</td>
+                      </tr>
+                      <tr>
+                        <th>3</th>
+                        <td>Twitter</td>
+                        <td>192</td>
+                        <td>435</td>
+                      </tr>
+                      <tr>
+                        <th>4</th>
+                        <td>Youtube</td>
+                        <td>51</td>
+                        <td>248</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                   <!-- pagination-starts -->
+                   <nav>
+                    <ul class="pagination justify-content-center ">
+                      <li class="page-item">
+                        <a href="#" class="page-link py-2 px-3">
+                          <span>Previous</span>
+                        </a>
+                      </li>
+                      <li class="page-item active ">
+                        <a href="#" class="page-link py-2 px-3">
+                          1
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a href="#" class="page-link py-2 px-3">
+                          2
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a href="#" class="page-link py-2 px-3">
+                          3
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a href="#" class="page-link py-2 px-3">
+                          <span>Next</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                  <!--pagination-end -->
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- charts & tables -->
+
+
+   <!-- rating-->
+   <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row mb-4 align-items-center">
+            <div class="col-xl-6 col-12 mb-4 mb-xl-0">
+              <div class="bg-dark text-white p-4 rounded">
+                <h3 class="mb-5">Social Network Rating</h3>
+                <h5 class="mb-3">Facebook</h5>
+                <div class="progress mb-4" style="height: 20px">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated font-weight-bold" style="width: 42%">
+                    42%
+                  </div>
+                </div>
+                <h5 class="mb-3">Instagram</h5>
+                <div class="progress mb-4" style="height: 20px">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated font-weight-bold bg-success" style="width: 85%">
+                    85%
+                  </div>
+                </div>
+                <h5 class="mb-3">Twitter</h5>
+                <div class="progress mb-4" style="height: 20px">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated font-weight-bold bg-warning" style="width: 59%">
+                    59%
+                  </div>
+                </div>
+                <h5 class="mb-3">Youtube</h5>
+                <div class="progress mb-4" style="height: 20px">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated font-weight-bold bg-danger" style="width: 70%">
+                    70%
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-12 bg-blue">
+              <h2 class="text-dark font-weight-bold p-3 mb-3">Reports Hub</h2>
+              <div class="container-fluid bg-light">
+                <div class="row py-3 mb-4 task-border align-items-center">
+                  <div class="col-1">
+                    <i class="fa fa-facebook fa-2x text-dark" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-sm-9 col-8 text-dark">
+                    Understand your facebook page audience,their behaviour and engagement.
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid bg-light">
+                <div class="row py-3 mb-4 task-border align-items-center">
+                  <div class="col-1">
+                    <i class="fa fa-instagram fa-2x text-dark" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-sm-9 col-8 text-dark">
+                    Understand the impact your Instagram posts have on your audience and engagement.
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid bg-light">
+                <div class="row py-3 mb-4 task-border align-items-center">
+                  <div class="col-1">
+                    <i class="fa fa-twitter fa-2x text-dark" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-sm-9 col-8 text-dark">
+                    Analyze your Twitter accounts to understand your audience and engagement.
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid bg-light">
+                <div class="row py-3 mb-4 task-border align-items-center">
+                  <div class="col-1">
+                    <i class="fa fa-youtube-play fa-2x text-dark" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-sm-9 col-8 text-dark">
+                    Track your audience growth on Youtube & understand which videos are most engaging.
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- rating end -->
+
+   <!-- trending/view sec -->
+   <section>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row align-items-center mb-5">
+            <div class="col-xl-7">
+              <h4 class="text-muted mb-4">Trending Tweets</h4>
+              <div id="react">
+                <div class="card">
+                  <div class="card-header bg-dark">
+                    <button class="btn btn-block bg-primary text-light text-left" data-toggle="collapse" data-target="#collapseOne">
+                      <h6 class="mt-1">#trending1</h6>
+                    </button>
+                  </div>
+                  <div class="collapse " id="collapseOne" data-parent="#react">
+                    <div class="card-body bg-blue">
+                      <h5 class="font-weight-bold">Kriti Sanon</h5>
+                      I'm ending all this for good.Going far yet close to you people.Maybe after this people try to communicate with others rather than holding onto the thoughts.See ya at the other side.Goodbye.
+                      <strong>#justiceforsushant</strong>
+                    </div>                      
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header bg-dark">
+                    <button class="btn btn-block bg-primary text-light text-left" data-toggle="collapse" data-target="#collapseTwo">
+                      <h6 class="mt-1">#trending2</h6>
+                    </button>
+                  </div>
+                  <div class="collapse" id="collapseTwo" data-parent="#react">
+                    <div class="card-body bg-blue">
+                      <h5 class="font-weight-bold">Parth Agarwal</h5>
+                      Queen you slay!Number 1 everywhere.We are so excited to watch you on Bigg Boss 13.Hinaholics keep this trending.
+                      <strong>#BB13hinakhan</strong>
+                    </div>                      
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header bg-dark">
+                    <button class="btn btn-block bg-primary text-light text-left" data-toggle="collapse" data-target="#collapseThree">
+                      <h6 class="mt-1">#trending3 </h6>
+                    </button>
+                  </div>
+                  <div class="collapse" id="collapseThree" data-parent="#react">
+                    <div class="card-body bg-blue">
+                      <h5 class="font-weight-bold">Darren of Plymouth</h5>
+                      "China is hiding the real number of deaths" WION news India.This report also states the increased SO2 concentration around <strong>#Wuhan</strong> detected by satellite,which could be attributed due to the burning of large no. of bodies and medical supplies.
+                    </div>                      
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header bg-dark">
+                    <button class="btn btn-block bg-primary text-light text-left" data-toggle="collapse" data-target="#collapseFour">
+                      <h6 class="mt-1">#trending4</h6>
+                    </button>
+                  </div>
+                  <div class="collapse" id="collapseFour" data-parent="#react">
+                    <div class="card-body bg-blue">
+                      <h5 class="font-weight-bold">Greater Manchester Police</h5>
+                      There's a scam circulating that states the recipient has breached regulations and that a fine will be sent in the post<strong>#ScamAlert</strong> This is a scam and if you receive a message like this inform ActionFraud Online.
+                    </div>                      
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header bg-dark">
+                    <button class="btn btn-block bg-primary text-light text-left" data-toggle="collapse" data-target="#collapseFive">
+                      <h6 class="mt-1">#trending5</h6>
+                    </button>
+                  </div>
+                  <div class="collapse" id="collapseFive" data-parent="#react">
+                    <div class="card-body bg-blue">
+                      <h5 class="font-weight-bold">Karan Johar</h5>
+                      <strong>#court</strong> is undeniably a great decision!One of the best films I have seen this year...finger crossed for its victorious journey ahead.
+                    </div>                      
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header bg-dark">
+                    <button class="btn btn-block bg-primary text-light text-left" data-toggle="collapse" data-target="#collapseSix">
+                      <h6 class="mt-1">#trending6</h6>
+                    </button>
+                  </div>
+                  <div class="collapse" id="collapseSix" data-parent="#react">
+                    <div class="card-body bg-blue">
+                      <h5 class="font-weight-bold">Ritesh Nigam</h5>
+                      <strong>#postponeneet</strong> You are going to take risk of about 30lakh students lives.What you want,your countrymen's health or your exams over them? <strong>#ExamsoverHealth</strong>
+                    </div>                      
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-5 mt-5">
+              <div class="card rounded bg-dark">
+                <div class="card-body">
+                  <h5 class="text-light text-center mb-4">Contact Us</h5>
+                  <ul class="list-inline text-center  py-3">
+                    <li class="list-inline-item mr-4">
+                      <a href="#"  style="text-decoration: none;">
+                        <i class="fa fa-instagram text-danger"></i>
+                        <span class="h6 text-muted">Instagram</span>
+                      </a>
+                    </li>
+                    <li class="list-inline-item mr-4">
+                      <a href="#"  style="text-decoration: none;">
+                        <i class="fa fa-linkedin text-info"></i>
+                        <span class="h6 text-muted">Linkedin</span>
+                      </a>
+                    </li>
+                    <li class="list-inline-item" ">
+                      <a href="#" style="text-decoration: none;">
+                        <i class="fa fa-twitter text-primary"></i>
+                        <span class="h6 text-muted">Twitter</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <form>
+                    <div class="form-group">
+                      <input type="text" class="form-control py-2 mb-3" placeholder="What's Your View...">
+                      <button type="button" class="btn btn-block text-uppercase font-weight-bold text-light bg-danger py-2 mb-5">Submit Post</button>
+                    </div>
+                  </form>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="card bg-light">
+                        <i class="fa fa-calendar-o fa-3x text-danger d-block m-auto py-3" aria-hidden="true"></i>
+                        <div class="card-body">
+                          <p class="card-text text-center font-weight-bold text-uppercase ">Sun, Aug-2</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="card bg-light">
+                        <i class="fa fa-clock-o fa-3x text-danger d-block m-auto py-3"></i>
+                        <div class="card-body">
+                          <p class="card-text text-center font-weight-bold text-uppercase">12:57 am</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- trending/ view sec end -->
+
+  <!-- footer -->
+  <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+          <div class="row border-top pt-3">
+            <div class="col-lg-6 text-center">
+              <ul class="list-inline">
+                <li class="list-inline-item mr-2">
+                  <a href="#" class="text-dark">SocialMedia</a>
+                </li>
+                <li class="list-inline-item mr-2">
+                  <a href="#" class="text-dark">About</a>
+                </li>
+                <li class="list-inline-item mr-2">
+                  <a href="#" class="text-dark">Support</a>
+                </li>
+                <li class="list-inline-item mr-2">
+                  <a href="#" class="text-dark">Blog</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6 text-center">
+              <p>&copy;2020 Copyright:VishKanta.com
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- end -->
+  
+    
+
+    
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
